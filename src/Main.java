@@ -45,7 +45,11 @@ public class Main {
 			}
 		}
 		
-
-
+		//Sorts the list before operations can be done in the menu
+		System.out.println("\nSorting the List...");
+		list.bubbleSort();
+		list.display();
+		
+		
 	}
 }

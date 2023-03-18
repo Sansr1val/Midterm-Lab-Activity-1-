@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 
 public class Main {
 	static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	static DoublyLinkedList list = new DoublyLinkedList();
+	static DoublySkipList skipList = new DoublySkipList();
 	static int size;
 
 
@@ -35,12 +37,15 @@ public class Main {
 				try {
 					System.out.print("Enter number #"+i+": ");
 					number = Integer.parseInt(reader.readLine());
+					list.add(number);
 					break;
 				} catch (NumberFormatException e) {
 					System.out.println("Only integer inputs are allowed! Try again.\n");
 				}
 			}
 		}
+		
+
 
 	}
 }

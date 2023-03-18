@@ -8,6 +8,9 @@ public class Main {
 
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		/*
+		 * List size initialization
+		 */
 		while(true) {
 			try {
 				System.out.print("Enter List size: ");
@@ -22,6 +25,22 @@ public class Main {
 			}
 		}
 		
+		/*
+		 * Places values inside the list depending on the 
+		 * size input of the user.
+		 */
+		int number;
+		for(int i = 0; i<size ;i++) {
+			while(true) {
+				try {
+					System.out.print("Enter number #"+i+": ");
+					number = Integer.parseInt(reader.readLine());
+					break;
+				} catch (NumberFormatException e) {
+					System.out.println("Only integer inputs are allowed! Try again.\n");
+				}
+			}
+		}
 
 	}
 }

@@ -1,6 +1,6 @@
 
 public class DoublyLinkedList {
-	
+
 	private Node head;
 	private Node tail;
 	private int size;
@@ -20,7 +20,7 @@ public class DoublyLinkedList {
 	public void setHead(Node head) {
 		this.head = head;
 	}
-	
+
 	public void add(int data) {
 		Node node = new Node(data);
 		if(head == null) {
@@ -34,7 +34,7 @@ public class DoublyLinkedList {
 			size++;
 		}
 	}
-	
+
 	public String display() {
 		Node currentNode = head;
 		String str = "";
@@ -47,7 +47,7 @@ public class DoublyLinkedList {
 		}
 		return str;
 	}
-	
+
 	public String displayReverse() {
 		Node currentNode = tail;
 		String str = "";
@@ -60,4 +60,24 @@ public class DoublyLinkedList {
 		}
 		return str;
 	}
+
+	public void bubbleSort() { 
+
+		boolean noChanges = true;
+		int temp;
+
+		Node currentNode = head; 
+		while(currentNode.getNext()!= null) {
+			if(currentNode.getData() > currentNode.getNext().getData()) {
+				temp = currentNode.getData();
+				currentNode.setData(currentNode.getNext().getData());
+				currentNode.getNext().setData(temp);
+				noChanges = false;
+			}
+			currentNode = currentNode.getNext();
+		} 
+		if(noChanges==false)
+			bubbleSort();
+	}
+
 }

@@ -85,7 +85,8 @@ public class Main {
 						break;
 					case 8://search from tail
 						break;
-					case 9://exit
+					case 9:
+						System.exit(0);
 						break;
 					}
 				}

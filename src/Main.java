@@ -70,6 +70,53 @@ public class Main {
 				}else {
 					switch(choice) {
 					case 1://add
+						do {
+		
+
+							System.out.print("\nEnter a number: ");
+							number = Integer.parseInt(reader.readLine());
+		
+
+							Node currentNode = linkedList.getHead();
+							while(currentNode.getNext()!=null)
+								currentNode = currentNode.getNext();
+							lastValue = currentNode.getData();
+		
+
+							if(lastValue >= number)
+								System.out.print("\nNumber must be higher than the last value.");
+		
+
+							} while(lastValue >= number);
+	
+
+						Node node = new Node(number);
+						linkedList.addNode(node);
+	
+
+						if(skipList.getHead()!=null) {
+		
+
+							SkipNode currentSkipNode = skipList.getHead();
+							while(currentSkipNode.getNext()!=null)
+								currentSkipNode = currentSkipNode.getNext();
+		
+
+							Node currentNode = currentSkipNode.getBottom();
+							for(int i=1; i<= nodesToSkip + 1; i++)
+								if(currentNode!=null)
+									currentNode = currentNode.getNext();
+		
+
+							if(currentNode!=null) {
+
+							SkipNode skipNode = new SkipNode();
+
+							skipNode.setData(currentNode.getData());
+							skipNode.setBottom(currentNode);
+							skipList.addNode(skipNode);
+							}
+						}
 						break;
 					case 2://create skip list
 						break;

@@ -70,106 +70,110 @@ public class Main {
 				}else {
 					switch(choice) {
 					case 1://add
-						do {
-		
-
-							System.out.print("\nEnter a number: ");
-							number = Integer.parseInt(reader.readLine());
-		
-
-							Node currentNode = linkedList.getHead();
-							while(currentNode.getNext()!=null)
-								currentNode = currentNode.getNext();
-							lastValue = currentNode.getData();
-		
-
-							if(lastValue >= number)
-								System.out.print("\nNumber must be higher than the last value.");
-		
-
-							} while(lastValue >= number);
-	
-
-						Node node = new Node(number);
-						linkedList.addNode(node);
-	
-
-						if(skipList.getHead()!=null) {
-		
-
-							SkipNode currentSkipNode = skipList.getHead();
-							while(currentSkipNode.getNext()!=null)
-								currentSkipNode = currentSkipNode.getNext();
-		
-
-							Node currentNode = currentSkipNode.getBottom();
-							for(int i=1; i<= nodesToSkip + 1; i++)
-								if(currentNode!=null)
-									currentNode = currentNode.getNext();
-		
-
-							if(currentNode!=null) {
-
-							SkipNode skipNode = new SkipNode();
-
-							skipNode.setData(currentNode.getData());
-							skipNode.setBottom(currentNode);
-							skipList.addNode(skipNode);
-							}
-						}
-						break;
+//						do {
+//		
+//
+//							System.out.print("\nEnter a number: ");
+//							number = Integer.parseInt(reader.readLine());
+//		
+//
+//							Node currentNode = linkedList.getHead();
+//							while(currentNode.getNext()!=null)
+//								currentNode = currentNode.getNext();
+//							lastValue = currentNode.getData();
+//		
+//
+//							if(lastValue >= number)
+//								System.out.print("\nNumber must be higher than the last value.");
+//		
+//
+//							} while(lastValue >= number);
+//	
+//
+//						Node node = new Node(number);
+//						linkedList.addNode(node);
+//	
+//
+//						if(skipList.getHead()!=null) {
+//		
+//
+//							SkipNode currentSkipNode = skipList.getHead();
+//							while(currentSkipNode.getNext()!=null)
+//								currentSkipNode = currentSkipNode.getNext();
+//		
+//
+//							Node currentNode = currentSkipNode.getBottom();
+//							for(int i=1; i<= nodesToSkip + 1; i++)
+//								if(currentNode!=null)
+//									currentNode = currentNode.getNext();
+//		
+//
+//							if(currentNode!=null) {
+//
+//							SkipNode skipNode = new SkipNode();
+//
+//							skipNode.setData(currentNode.getData());
+//							skipNode.setBottom(currentNode);
+//							skipList.addNode(skipNode);
+//							}
+//						}
+//						break;
 					case 2://create skip list
-						public void createSkipList() {
-    							if (skipList.getHead() != null) {
-        							System.out.println("Skip list already exists.");
-        							return;
-    }
-
-    							int nodesToSkip = (int) Math.sqrt(length);
-    							Node currentNode = head;
-
-    							
-    							SkipNode skipNode = new SkipNode();
-    							skipNode.setData(head.getData());
-    							skipNode.setBottom(head);
-    							skipList.addNode(skipNode);
-
-    			
-    						while (currentNode != null) {
-        
-        						for (int i = 1; i <= nodesToSkip; i++) {
-           							if (currentNode.getNext() != null) {
-                							currentNode = currentNode.getNext();
-            								} else {
-                					break;
-            							}
-        							}
-
-        				
-        						skipNode = new SkipNode();
-       							skipNode.setData(currentNode.getData());
-        						skipNode.setBottom(currentNode);
-        						skipList.addNode(skipNode);
-
-     
-        						if (currentNode.getNext() != null) {
-            							currentNode = currentNode.getNext();
-        							} else {
-            						break;
-        							}
-    							}
-
-    							System.out.println("Skip list created.");
-						}
+//						public void createSkipList() {
+//    							if (skipList.getHead() != null) {
+//        							System.out.println("Skip list already exists.");
+//        							return;
+//    }
+//
+//    							int nodesToSkip = (int) Math.sqrt(length);
+//    							Node currentNode = head;
+//
+//    							
+//    							SkipNode skipNode = new SkipNode();
+//    							skipNode.setData(head.getData());
+//    							skipNode.setBottom(head);
+//    							skipList.addNode(skipNode);
+//
+//    			
+//    						while (currentNode != null) {
+//        
+//        						for (int i = 1; i <= nodesToSkip; i++) {
+//           							if (currentNode.getNext() != null) {
+//                							currentNode = currentNode.getNext();
+//            								} else {
+//                					break;
+//            							}
+//        							}
+//
+//        				
+//        						skipNode = new SkipNode();
+//       							skipNode.setData(currentNode.getData());
+//        						skipNode.setBottom(currentNode);
+//        						skipList.addNode(skipNode);
+//
+//     
+//        						if (currentNode.getNext() != null) {
+//            							currentNode = currentNode.getNext();
+//        							} else {
+//            						break;
+//        							}
+//    							}
+//
+//    							System.out.println("Skip list created.");
+//						}
 							
 						break;
 					case 3://display list from head
+						displayListFromHead();
 						break;
 					case 4://display list from tail
+						displayListFromTail();
 						break;
 					case 5://display skip list from head
+						displaySkipListFromHead();
 						break;
 					case 6://display skip list from tail
+						displaySkipListFromTail();
 						break;
 					case 7://search from head
 						break;
@@ -184,5 +188,25 @@ public class Main {
 		} catch (NumberFormatException e) {
 			System.out.println("Only integers are allowed as inputs! Try again.");
 		}
+	}
+	
+	public static void displayListFromHead() {
+		System.out.println("Displaying list from head...");
+		System.out.println(list.display());
+	}
+	
+	public static void displayListFromTail() {
+		System.out.println("Displaying list from tail...");
+		System.out.println(list.displayReverse());
+	}
+	
+	public static void displaySkipListFromHead() {
+		System.out.println("Displaying skip list from head...");
+		System.out.println(skipList.display());
+	}
+	
+	public static void displaySkipListFromTail() {
+		System.out.println("Displaying skip list from tail...");
+		System.out.println(skipList.displayReverse());
 	}
 }

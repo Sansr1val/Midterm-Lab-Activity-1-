@@ -64,7 +64,7 @@ public class Main {
 				System.out.println("[8] Search From Tail");
 				System.out.println("[9] Exit");
 				System.out.println("Select an operation: ");
-				int choice = reader.readLine().charAt(0);
+				int choice = Integer.parseInt(reader.readLine());
 				if(choice < 1 || choice > 9){
 					System.out.println("Operation "+ choice+" does not exist! Try again.");
 				}else {

@@ -72,48 +72,6 @@ public class Main {
 					case 1://add
 						break;
 					case 2://create skip list
-//						public void createSkipList() {
-//    							if (skipList.getHead() != null) {
-//        							System.out.println("Skip list already exists.");
-//        							return;
-//    }
-//
-//    							int nodesToSkip = (int) Math.sqrt(length);
-//    							Node currentNode = head;
-//
-//    							
-//    							SkipNode skipNode = new SkipNode();
-//    							skipNode.setData(head.getData());
-//    							skipNode.setBottom(head);
-//    							skipList.addNode(skipNode);
-//
-//    			
-//    						while (currentNode != null) {
-//        
-//        						for (int i = 1; i <= nodesToSkip; i++) {
-//           							if (currentNode.getNext() != null) {
-//                							currentNode = currentNode.getNext();
-//            								} else {
-//                					break;
-//            							}
-//        							}
-//
-//        				
-//        						skipNode = new SkipNode();
-//       							skipNode.setData(currentNode.getData());
-//        						skipNode.setBottom(currentNode);
-//        						skipList.addNode(skipNode);
-//
-//     
-//        						if (currentNode.getNext() != null) {
-//            							currentNode = currentNode.getNext();
-//        							} else {
-//            						break;
-//        							}
-//    							}
-//
-//    							System.out.println("Skip list created.");
-//						}
 							
 						break;
 					case 3://display list from head

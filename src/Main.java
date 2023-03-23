@@ -180,8 +180,14 @@ public class Main {
 					case 8://search from tail
 						break;
 					case 9:
-						System.exit(0);
-						break;
+						System.out.print("\n--Exit--" + "\nProgram will be terminated");
+
+					for (int i = 0; i < 3; i++) {
+						Thread.sleep(1000);
+						System.out.print(".");
+					}
+					System.out.print("\nProgram terminated.");
+					System.exit(0);
 					}
 				}
 			}

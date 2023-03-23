@@ -122,6 +122,40 @@ public class Main {
 						break;
 					case 2:
 
+						if(skipList.getHead()!=null)
+							System.out.print("\nAlready created a skip list.");
+						else {
+
+
+							// computes the number of nodes to be skipped
+							nodesToSkip = (int) Math.sqrt(list.getLength());
+
+							// creates the first node of the skip list
+							SkipNode skipNode = new SkipNode();
+							skipNode.setData(list.getHead().getData());
+							skipNode.setBottom(list.getHead());
+							skipList.add(skipNode);
+							// creates the remaining nodes of the skip list
+							Node currentNode = list.getHead();
+							while(currentNode!=null) {
+								for(int i=1; i <= nodesToSkip+1; i++) {
+									if(currentNode!=null)
+										currentNode = currentNode.getNext();
+									else
+										break;
+
+								}
+								if(currentNode!=null) {
+									skipNode = new SkipNode();
+
+									skipNode.setData(currentNode.getData());
+									skipNode.setBottom(currentNode);
+									skipList.add(skipNode);
+
+								}
+							}
+							System.out.print("\nSkip list created!");
+						}
 						break;
 
 					case 3://display list from head

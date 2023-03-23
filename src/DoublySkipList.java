@@ -21,15 +21,14 @@ public class DoublySkipList {
 		return this.tail;
 	}
 
-	public void add(int data) {
-		SkipNode node = new SkipNode(data);
+	public void add (SkipNode skipNode) {
 		if(head == null) {
-			head = node;
-			tail = node;
+			head = skipNode;
+			tail = skipNode;
 		}else {
-			tail.setNext(node);
-			node.setPrevious(tail);
-			tail = node;
+			tail.setNext(skipNode);
+			skipNode.setPrevious(tail);
+			tail = skipNode;
 		}
 	}
 

@@ -171,6 +171,9 @@ public class Main {
 						displaySkipListFromTail();
 						break;
 					case 7://search from head
+						System.out.print("\nEnter a number: ");
+						number = Integer.parseInt(reader.readLine());
+						System.out.println(skipList.searchFromHead(number));
 						break;
 					case 8://search from tail
 						break;
@@ -212,5 +215,5 @@ public class Main {
 		System.out.println(skipList.displayReverse());
 	}
 
-	
+
 }

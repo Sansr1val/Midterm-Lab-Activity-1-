@@ -9,7 +9,7 @@ public class Main {
 	static int size;
 
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws NumberFormatException, IOException, InterruptedException {
 		/*
 		 * List size initialization
 		 */

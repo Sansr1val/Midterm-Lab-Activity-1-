@@ -69,7 +69,46 @@ public class Main {
 					System.out.println("Operation "+ choice+" does not exist! Try again.");
 				}else {
 					switch(choice) {
-					case 1://add
+					case 1:
+						// input for the new node's data
+							System.out.print("\nEnter a number: ");
+							number = Integer.parseInt(reader.readLine());
+							
+							// retrieves the last node's value
+							Node currentNode = list.getHead();
+							while(currentNode.getNext()!=null)
+								currentNode = currentNode.getNext();
+							lastValue = currentNode.getData();
+							
+							// the new node's data must not be lower than the last node's data
+							if(lastValue >= number)
+							System.out.print("\nNumber must be higher than the last value.");
+							
+							// repeat the input if new node's data is lower than last node's data
+						} while(lastValue >= number);
+						
+							// adds the new node to the linked list
+							list.add(number);
+					
+					
+					
+					
+					
+					
+					/*
+					TO BE CONTINUED
+					*/
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 						break;
 					case 2://create skip list
 							

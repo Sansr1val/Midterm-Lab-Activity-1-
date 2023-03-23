@@ -4,7 +4,7 @@ public class SkipNode {
 	private int data;
 	private SkipNode previous;
 	private SkipNode next;
-	private SkipNode bottom;
+	private Node bottom;
 	
 	//constructor
 	public SkipNode() {
@@ -45,11 +45,11 @@ public class SkipNode {
 		this.previous = previous;
 	}
 	
-	public SkipNode getBottom() {
+	public Node getBottom() {
 		return this.bottom;
 	}
 	
-	public void setBottom(SkipNode bottom) {
+	public void setBottom(Node bottom) {
 		this.bottom = bottom;
 	}
 	

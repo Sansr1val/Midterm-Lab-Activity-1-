@@ -21,17 +21,16 @@ public class DoublyLinkedList {
 		this.head = head;
 	}
 
-	public void add(int data) {
-		Node node = new Node(data);
+	public void add(Node node) {
 		if(head == null) {
 			head = node;
 			tail = node;
-			size++;
+			
 		}else {
 			tail.setNext(node);
 			node.setPrevious(tail);
 			tail = node;
-			size++;
+	
 		}
 	}
 

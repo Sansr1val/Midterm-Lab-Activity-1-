@@ -176,6 +176,9 @@ public class Main {
 						System.out.println(skipList.searchFromHead(number));
 						break;
 					case 8://search from tail
+						System.out.print("\nEnter a number: ");
+						number = Integer.parseInt(reader.readLine());
+						System.out.println(skipList.searchFromTail(number));
 						break;
 					case 9:
 						System.out.print("\n--Exit--" + "\nProgram will be terminated");

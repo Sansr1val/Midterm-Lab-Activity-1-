@@ -7,6 +7,8 @@ public class Main {
 	static DoublyLinkedList list = new DoublyLinkedList();
 	static DoublySkipList skipList = new DoublySkipList();
 	static int size;
+	static int lastValue;
+	static int nodesToSkip;
 
 
 	public static void main(String[] args) throws NumberFormatException, IOException, InterruptedException {
@@ -37,7 +39,8 @@ public class Main {
 				try {
 					System.out.print("Enter number #"+i+": ");
 					number = Integer.parseInt(reader.readLine());
-					list.add(number);
+					Node node = new Node(number);
+					list.add(node);
 					break;
 				} catch (NumberFormatException e) {
 					System.out.println("Only integer inputs are allowed! Try again.\n");
@@ -70,49 +73,57 @@ public class Main {
 				}else {
 					switch(choice) {
 					case 1:
-						// input for the new node's data
+						do {
+							// input for the new node's data
 							System.out.print("\nEnter a number: ");
 							number = Integer.parseInt(reader.readLine());
-							
+
 							// retrieves the last node's value
 							Node currentNode = list.getHead();
 							while(currentNode.getNext()!=null)
 								currentNode = currentNode.getNext();
 							lastValue = currentNode.getData();
-							
+
 							// the new node's data must not be lower than the last node's data
 							if(lastValue >= number)
-							System.out.print("\nNumber must be higher than the last value.");
-							
+								System.out.print("\nNumber must be higher than the last value.");
+
 							// repeat the input if new node's data is lower than last node's data
 						} while(lastValue >= number);
-						
-							// adds the new node to the linked list
-							list.add(number);
-					
-					
-					
-					
-					
-					
-					/*
-					TO BE CONTINUED
-					*/
 
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+						// adds the new node to the linked list
+						Node node = new Node(number);
+						list.add(node);
+
+						// checks if the existing skip list needs an update
+						if(skipList.getHead()!=null) {
+							// retrieves the last node of the skip list
+							SkipNode currentSkipNode = skipList.getHead();
+							while(currentSkipNode.getNext()!=null)
+
+								currentSkipNode = currentSkipNode.getNext();
+							// checks if there's a need to create a new node for the skip list
+							// based on the calculated number of nodes to be skipped
+							Node currentNode = currentSkipNode.getBottom();
+							for(int i=1; i<= nodesToSkip + 1; i++)
+								if(currentNode!=null)
+									currentNode = currentNode.getNext();
+							// if number of nodes to be skipped was met then create a
+							// new node for the skip list
+							if(currentNode!=null) {
+
+								SkipNode skipNode = new SkipNode();
+								skipNode.setData(currentNode.getData());
+								skipNode.setBottom(currentNode);
+								skipList.add(skipNode);
+							}
+
+						}
 						break;
-					case 2://create skip list
-							
+					case 2:
+
 						break;
+
 					case 3://display list from head
 						displayListFromHead();
 						break;
@@ -133,11 +144,12 @@ public class Main {
 						System.out.print("\n--Exit--" + "\nProgram will be terminated");
 
 						for (int i = 0; i < 3; i++) {
-						Thread.sleep(1000);
-						System.out.print(".");
+							Thread.sleep(1000);
+							System.out.print(".");
 						}
 						System.out.print("\nProgram terminated.");
 						System.exit(0);
+
 					}
 				}
 			}
@@ -145,24 +157,26 @@ public class Main {
 			System.out.println("Only integers are allowed as inputs! Try again.");
 		}
 	}
-	
+
 	public static void displayListFromHead() {
 		System.out.println("Displaying list from head...");
 		System.out.println(list.display());
 	}
-	
+
 	public static void displayListFromTail() {
 		System.out.println("Displaying list from tail...");
 		System.out.println(list.displayReverse());
 	}
-	
+
 	public static void displaySkipListFromHead() {
 		System.out.println("Displaying skip list from head...");
 		System.out.println(skipList.display());
 	}
-	
+
 	public static void displaySkipListFromTail() {
 		System.out.println("Displaying skip list from tail...");
 		System.out.println(skipList.displayReverse());
 	}
+
+	
 }

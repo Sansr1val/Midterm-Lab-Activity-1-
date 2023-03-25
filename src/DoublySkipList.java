@@ -87,37 +87,38 @@ public class DoublySkipList {
 		return res;
 
 	}
+
 	public String searchFromHead123(int value) {
 		String str = "Skip List:";
-	    SkipNode current = head;
-	    Node bottom = null;
-	    while (current != null) {
-	        if (current.getData() == value) {
-	        	str += (" "+current.getData());
-	            return str;
-	        } else if (current.getNext() != null && current.getNext().getData() <= value) {
-	        	str += (" "+current.getData());
-	            current = current.getNext();
-	        } else {
-	        	str += (" "+current.getData());
-	            bottom = current.getBottom();
-	            break;
-	        }
-	    }
-	    str += "\nLinked List:";
-	    while (bottom != null) {
-	        if (bottom.getData() == value) {
-	        	str += (" "+bottom.getData());
-	            return str;
-	        } else if (bottom.getNext() != null && bottom.getNext().getData() <= value) {
-	        	str += (" "+bottom.getData());
-	            bottom = bottom.getNext();
-	        } else {
-	            break;
-	        }
-	    }
-	    
-	    return "Number does not exist in the list.";
+		SkipNode current = head;
+		Node bottom = null;
+		while (current != null) {
+			if (current.getData() == value) {
+				str += (" " + current.getData());
+				return str;
+			} else if (current.getNext() != null && current.getNext().getData() <= value) {
+				str += (" " + current.getData());
+				current = current.getNext();
+			} else {
+				str += (" " + current.getData());
+				bottom = current.getBottom();
+				break;
+			}
+		}
+		str += "\nLinked List:";
+		while (bottom != null) {
+			if (bottom.getData() == value) {
+				str += (" " + bottom.getData());
+				return str;
+			} else if (bottom.getNext() != null && bottom.getNext().getData() <= value) {
+				str += (" " + bottom.getData());
+				bottom = bottom.getNext();
+			} else {
+				break;
+			}
+		}
+
+		return "Number does not exist in the list.";
 	}
 
 	public String searchFromTail(int num) {
@@ -126,7 +127,7 @@ public class DoublySkipList {
 		String res = "Skip List:";
 
 		if (tempSkipNode.getData() == num)
-			return res + " " + tempSkipNode;
+			return res + " " + tempSkipNode.getData();
 
 		if (num > tempSkipNode.getData()) {
 			tempNode = tempSkipNode.getBottom();

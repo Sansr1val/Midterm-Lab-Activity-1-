@@ -21,13 +21,6 @@ public class SkipNode {
 		this.bottom = null;
 	}
 
-	public SkipNode(int data, Node bottom) {
-		this.data = data;
-		this.next = null;
-		this.previous = null;
-		this.bottom = bottom;
-	}
-
 	// setters and getters.
 	public int getData() {
 		return this.data;

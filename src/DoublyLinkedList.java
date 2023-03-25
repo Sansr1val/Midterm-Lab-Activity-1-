@@ -3,7 +3,6 @@ public class DoublyLinkedList {
 
 	private Node head;
 	private Node tail;
-	private int size;
 
 	public Node getTail() {
 		return tail;

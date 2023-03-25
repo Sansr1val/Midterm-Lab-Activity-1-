@@ -76,43 +76,8 @@ public class Main {
 						addNode();
 						break;
 					case 2:
-
-						if(skipList.getHead()!=null)
-							System.out.print("\nAlready created a skip list.");
-						else {
-
-
-							// computes the number of nodes to be skipped
-							nodesToSkip = (int) Math.sqrt(list.getLength());
-
-							// creates the first node of the skip list
-							SkipNode skipNode = new SkipNode();
-							skipNode.setData(list.getHead().getData());
-							skipNode.setBottom(list.getHead());
-							skipList.add(skipNode);
-							// creates the remaining nodes of the skip list
-							Node currentNode = list.getHead();
-							while(currentNode!=null) {
-								for(int i=1; i <= nodesToSkip+1; i++) {
-									if(currentNode!=null)
-										currentNode = currentNode.getNext();
-									else
-										break;
-
-								}
-								if(currentNode!=null) {
-									skipNode = new SkipNode();
-
-									skipNode.setData(currentNode.getData());
-									skipNode.setBottom(currentNode);
-									skipList.add(skipNode);
-
-								}
-							}
-							System.out.print("\nSkip list created!");
-						}
+						createSkipList();
 						break;
-
 					case 3://display list from head
 						displayListFromHead();
 						break;
@@ -126,9 +91,7 @@ public class Main {
 						displaySkipListFromTail();
 						break;
 					case 7://search from head
-						System.out.print("\nEnter a number: ");
-						number = Integer.parseInt(reader.readLine());
-						System.out.println(skipList.searchFromHead123(number));
+						searchFromHead();
 						break;
 					case 8://search from tail
 						System.out.print("\nEnter a number: ");
@@ -152,6 +115,7 @@ public class Main {
 			System.out.println("Only integers are allowed as inputs! Try again.");
 		}
 	}
+
 	public static void addNode() throws NumberFormatException, IOException {
 		int number = 0;
 		do {
@@ -159,13 +123,13 @@ public class Main {
 				// input for the new node's data
 				System.out.print("\nEnter a number: ");
 				number = Integer.parseInt(reader.readLine());
-				
+
 				// retrieves the last node's value
 				Node currentNode = list.getHead();
 				while(currentNode.getNext()!=null)
 					currentNode = currentNode.getNext();
 				lastValue = currentNode.getData();
-				
+
 				// the new node's data must not be lower than the last node's data
 				if(lastValue >= number)
 					System.out.print("\nNumber must be higher than the last value.");
@@ -206,6 +170,44 @@ public class Main {
 		}
 	}
 
+	public static void createSkipList() {
+
+		if(skipList.getHead()!=null)
+			System.out.print("\nAlready created a skip list.");
+		else {
+
+
+			// computes the number of nodes to be skipped
+			nodesToSkip = (int) Math.sqrt(list.getLength());
+
+			// creates the first node of the skip list
+			SkipNode skipNode = new SkipNode();
+			skipNode.setData(list.getHead().getData());
+			skipNode.setBottom(list.getHead());
+			skipList.add(skipNode);
+			// creates the remaining nodes of the skip list
+			Node currentNode = list.getHead();
+			while(currentNode!=null) {
+				for(int i=1; i <= nodesToSkip+1; i++) {
+					if(currentNode!=null)
+						currentNode = currentNode.getNext();
+					else
+						break;
+
+				}
+				if(currentNode!=null) {
+					skipNode = new SkipNode();
+
+					skipNode.setData(currentNode.getData());
+					skipNode.setBottom(currentNode);
+					skipList.add(skipNode);
+
+				}
+			}
+			System.out.print("\nSkip list created!");
+		}
+	}
+
 	public static void displayListFromHead() {
 		System.out.println("Displaying list from head...");
 		System.out.println(list.display());
@@ -224,6 +226,17 @@ public class Main {
 	public static void displaySkipListFromTail() {
 		System.out.println("Displaying skip list from tail...");
 		System.out.println(skipList.displayReverse());
+	}
+	
+	public static void searchFromHead() throws NumberFormatException, IOException {
+		try {
+			int number = 0;
+			System.out.print("\nEnter a number: ");
+			number = Integer.parseInt(reader.readLine());
+			System.out.println(skipList.searchFromHead123(number));
+		} catch (NumberFormatException e) {
+			System.out.println("Integer only! Please try again.");
+		}
 	}
 
 

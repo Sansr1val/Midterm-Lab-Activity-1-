@@ -25,12 +25,12 @@ public class DoublyLinkedList {
 		if(head == null) {
 			head = node;
 			tail = node;
-			
+
 		}else {
 			tail.setNext(node);
 			node.setPrevious(tail);
 			tail = node;
-	
+
 		}
 	}
 
@@ -78,5 +78,16 @@ public class DoublyLinkedList {
 		if(noChanges==false)
 			bubbleSort();
 	}
+
+	public int getLength() {
+		int counter = 0;
+		Node currentNode = head;
+		while(currentNode!=null){
+			counter++;
+			currentNode = currentNode.getNext();
+		}
+		return counter; 
+	}
+
 
 }

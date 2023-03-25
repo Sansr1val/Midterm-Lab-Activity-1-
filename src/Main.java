@@ -238,7 +238,7 @@ public class Main {
 			int number = 0;
 			System.out.print("\nEnter a number: ");
 			number = Integer.parseInt(reader.readLine());
-			System.out.println(skipList.searchFromTail(number));
+			System.out.println(skipList.searchFromTail123(number));
 		} catch (NumberFormatException e) {
 			System.out.println("Integer only! Please try again.");
 		}

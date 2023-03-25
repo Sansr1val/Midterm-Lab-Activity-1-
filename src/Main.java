@@ -173,7 +173,7 @@ public class Main {
 					case 7://search from head
 						System.out.print("\nEnter a number: ");
 						number = Integer.parseInt(reader.readLine());
-						System.out.println(skipList.searchFromHead(number));
+						System.out.println(skipList.searchFromHead123(number));
 						break;
 					case 8://search from tail
 						System.out.print("\nEnter a number: ");

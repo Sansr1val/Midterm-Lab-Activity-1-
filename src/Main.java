@@ -73,52 +73,7 @@ public class Main {
 				}else {
 					switch(choice) {
 					case 1:
-						do {
-							// input for the new node's data
-							System.out.print("\nEnter a number: ");
-							number = Integer.parseInt(reader.readLine());
-
-							// retrieves the last node's value
-							Node currentNode = list.getHead();
-							while(currentNode.getNext()!=null)
-								currentNode = currentNode.getNext();
-							lastValue = currentNode.getData();
-
-							// the new node's data must not be lower than the last node's data
-							if(lastValue >= number)
-								System.out.print("\nNumber must be higher than the last value.");
-
-							// repeat the input if new node's data is lower than last node's data
-						} while(lastValue >= number);
-
-						// adds the new node to the linked list
-						Node node = new Node(number);
-						list.add(node);
-
-						// checks if the existing skip list needs an update
-						if(skipList.getHead()!=null) {
-							// retrieves the last node of the skip list
-							SkipNode currentSkipNode = skipList.getHead();
-							while(currentSkipNode.getNext()!=null)
-
-								currentSkipNode = currentSkipNode.getNext();
-							// checks if there's a need to create a new node for the skip list
-							// based on the calculated number of nodes to be skipped
-							Node currentNode = currentSkipNode.getBottom();
-							for(int i=1; i<= nodesToSkip + 1; i++)
-								if(currentNode!=null)
-									currentNode = currentNode.getNext();
-							// if number of nodes to be skipped was met then create a
-							// new node for the skip list
-							if(currentNode!=null) {
-
-								SkipNode skipNode = new SkipNode();
-								skipNode.setData(currentNode.getData());
-								skipNode.setBottom(currentNode);
-								skipList.add(skipNode);
-							}
-
-						}
+						addNode();
 						break;
 					case 2:
 
@@ -195,6 +150,59 @@ public class Main {
 			}
 		} catch (NumberFormatException e) {
 			System.out.println("Only integers are allowed as inputs! Try again.");
+		}
+	}
+	public static void addNode() throws NumberFormatException, IOException {
+		int number = 0;
+		do {
+			try {
+				// input for the new node's data
+				System.out.print("\nEnter a number: ");
+				number = Integer.parseInt(reader.readLine());
+				
+				// retrieves the last node's value
+				Node currentNode = list.getHead();
+				while(currentNode.getNext()!=null)
+					currentNode = currentNode.getNext();
+				lastValue = currentNode.getData();
+				
+				// the new node's data must not be lower than the last node's data
+				if(lastValue >= number)
+					System.out.print("\nNumber must be higher than the last value.");
+			} catch (NumberFormatException e) {
+				System.out.println("Integers only! Please try again.");
+			}
+
+			// repeat the input if new node's data is lower than last node's data
+		} while(lastValue >= number);
+
+		// adds the new node to the linked list
+		Node node = new Node(number);
+		list.add(node);
+
+		// checks if the existing skip list needs an update
+		if(skipList.getHead()!=null) {
+			// retrieves the last node of the skip list
+			SkipNode currentSkipNode = skipList.getHead();
+			while(currentSkipNode.getNext()!=null)
+
+				currentSkipNode = currentSkipNode.getNext();
+			// checks if there's a need to create a new node for the skip list
+			// based on the calculated number of nodes to be skipped
+			Node currentNode = currentSkipNode.getBottom();
+			for(int i=1; i<= nodesToSkip + 1; i++)
+				if(currentNode!=null)
+					currentNode = currentNode.getNext();
+			// if number of nodes to be skipped was met then create a
+			// new node for the skip list
+			if(currentNode!=null) {
+
+				SkipNode skipNode = new SkipNode();
+				skipNode.setData(currentNode.getData());
+				skipNode.setBottom(currentNode);
+				skipList.add(skipNode);
+			}
+
 		}
 	}
 

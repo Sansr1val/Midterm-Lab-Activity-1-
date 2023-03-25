@@ -120,6 +120,58 @@ public class DoublySkipList {
 
 		return "Number does not exist in the list.";
 	}
+	public String searchFromTail123(int value) {
+		String str = "Skip List:";
+		SkipNode current = tail;
+		Node bottom = null;
+		if(value>= current.getData()) {
+			if(value == current.getData())
+				return str += (" " + current.getData());
+			str += (" " + current.getData());
+			bottom = current.getBottom();
+			str += "\nLinked List:";
+			while (bottom != null) {
+				if (bottom.getData() == value) {
+					str += (" " + bottom.getData());
+					return str;
+				} else if (bottom.getNext() != null && bottom.getNext().getData() <= value) {
+					str += (" " + bottom.getData());
+					bottom = bottom.getNext();
+				} else {
+					break;
+				}
+			}
+		}else {
+			while (current != null) {
+				if (current.getData() == value) {
+					str += (" " + current.getData());
+					return str;
+				} else if (current.getPrevious() != null && current.getPrevious().getData() >= value) {
+					str += (" " + current.getData());
+					current = current.getPrevious();
+				} else {
+					str += (" " + current.getData());
+					bottom = current.getBottom();
+					break;
+				}
+			}
+			str += "\nLinked List:";
+			while (bottom != null) {
+				if (bottom.getData() == value) {
+					str += (" " + bottom.getData());
+					return str;
+				} else if (bottom.getPrevious() != null && bottom.getPrevious().getData() >= value) {
+					str += (" " + bottom.getData());
+					bottom = bottom.getPrevious();
+				} else {
+					break;
+				}
+			}
+		}
+		
+
+		return "Number does not exist in the list.";
+	}
 
 	public String searchFromTail(int num) {
 		SkipNode tempSkipNode = this.tail;

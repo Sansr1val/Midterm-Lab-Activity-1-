@@ -35,7 +35,7 @@ public class Main {
 		for (int i = 0; i < size; i++) {
 			while (true) {
 				try {
-					System.out.print("Enter number #" + i + ": ");
+					System.out.print("Enter number #" + (i+1) + ": ");
 					number = Integer.parseInt(reader.readLine());
 					Node node = new Node(number);
 					list.add(node);

@@ -94,9 +94,7 @@ public class Main {
 						searchFromHead();
 						break;
 					case 8://search from tail
-						System.out.print("\nEnter a number: ");
-						number = Integer.parseInt(reader.readLine());
-						System.out.println(skipList.searchFromTail(number));
+						searchFromTail();
 						break;
 					case 9:
 						System.out.print("\n--Exit--" + "\nProgram will be terminated");
@@ -234,6 +232,17 @@ public class Main {
 			System.out.print("\nEnter a number: ");
 			number = Integer.parseInt(reader.readLine());
 			System.out.println(skipList.searchFromHead123(number));
+		} catch (NumberFormatException e) {
+			System.out.println("Integer only! Please try again.");
+		}
+	}
+	
+	public static void searchFromTail() throws NumberFormatException, IOException {
+		try {
+			int number = 0;
+			System.out.print("\nEnter a number: ");
+			number = Integer.parseInt(reader.readLine());
+			System.out.println(skipList.searchFromTail(number));
 		} catch (NumberFormatException e) {
 			System.out.println("Integer only! Please try again.");
 		}

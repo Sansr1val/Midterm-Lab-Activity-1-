@@ -164,7 +164,8 @@ public class Main {
 
 		}
 	}
-
+	
+	
 	public static void createSkipList() {
 
 		if (skipList.getHead() != null)
@@ -201,19 +202,23 @@ public class Main {
 			System.out.print("\nSkip list created!");
 		}
 	}
+	
 
 	public static void displayListFromHead() {
+		// Display the linked list from head to tail
 		System.out.println("Displaying list from head...");
 		System.out.println(list.display());
 	}
 
 	public static void displayListFromTail() {
+		// Display the linked list from tail to head
 		System.out.println("Displaying list from tail...");
 		System.out.println(list.displayReverse());
 	}
 
 	public static void displaySkipListFromHead() {
 		if(skipList.getHead() != null) {
+			 // Display the skip list from head to tail
 			System.out.println("Displaying skip list from head...");
 			System.out.println(skipList.display());
 		}else {
@@ -223,6 +228,7 @@ public class Main {
 
 	public static void displaySkipListFromTail() {
 		if(skipList.getHead() != null) {
+			// Display the skip list from tail to head
 			System.out.println("Displaying skip list from tail...");
 			System.out.println(skipList.displayReverse());
 		}else {
@@ -233,9 +239,12 @@ public class Main {
 	public static void searchFromHead() throws NumberFormatException, IOException {
 		if(skipList.getHead() != null) {
 			try {
+				// Prompt user to enter a number to search for
 				int number = 0;
 				System.out.print("\nEnter a number: ");
 				number = Integer.parseInt(reader.readLine());
+				
+				// Search for the number in the skip list from head to tail
 				System.out.println(skipList.searchFromHead123(number));
 			} catch (NumberFormatException e) {
 				System.out.println("Integer only! Please try again.");
@@ -244,13 +253,17 @@ public class Main {
 			System.out.println("Operation unavailable as Skip List is empty!");
 		}
 	}
-
+	
+	
 	public static void searchFromTail() throws NumberFormatException, IOException {
 		if(skipList.getHead() != null) {
 			try {
+				 // Prompt user to enter a number to search for
 				int number = 0;
 				System.out.print("\nEnter a number: ");
 				number = Integer.parseInt(reader.readLine());
+				
+				// Search for the number in the skip list from tail to head
 				System.out.println(skipList.searchFromTail123(number));
 			} catch (NumberFormatException e) {
 				System.out.println("Integer only! Please try again.");

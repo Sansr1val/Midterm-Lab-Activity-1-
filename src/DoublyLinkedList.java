@@ -76,7 +76,6 @@ public class DoublyLinkedList {
 
 	// Sorts the linked list in ascending order using the bubble sort algorithm
 	public void bubbleSort() { 
-		
 		// flag to check if any swaps were made
 		boolean noChanges = true; 
 		int temp;
@@ -107,11 +106,9 @@ public class DoublyLinkedList {
 		
 		// Traverse the linked list and count the number of nodes
 		while(currentNode!=null){
-			counter++;
+			counter++;//adds 1 to counter if the node is not empty
 			currentNode = currentNode.getNext();
 		}
 		return counter; 
 	}
-
-
 }

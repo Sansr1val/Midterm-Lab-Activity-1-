@@ -70,29 +70,28 @@ public class Main {
 					System.out.println("Operation " + choice + " does not exist! Try again.");
 				} else {
 					switch (choice) {
-					case 1:// create skip list
+					case 1:
 						createSkipList();
 						break;
 					case 2:
-						//addNode method 
 						addNode();
 						break;
-					case 3:// display list from head
+					case 3:
 						displayListFromHead();
 						break;
-					case 4: // display skip list from head
+					case 4: 
 						displaySkipListFromHead();
 						break;
-					case 5:// display list from tail
+					case 5:
 						displayListFromTail();
 						break;
-					case 6:// display skip list from tail
+					case 6:
 						displaySkipListFromTail();
 						break;
-					case 7:// search from head
+					case 7:
 						searchFromHead();
 						break;
-					case 8:// search from tail
+					case 8:
 						searchFromTail();
 						break;
 					case 9:
@@ -112,7 +111,7 @@ public class Main {
 			System.out.println("Only integers are allowed as inputs! Try again.");
 		}
 	}
-
+	
 	public static void addNode() throws NumberFormatException, IOException {
 		int number = 0;
 		do {
@@ -148,14 +147,18 @@ public class Main {
 			while (currentSkipNode.getNext() != null)
 
 				currentSkipNode = currentSkipNode.getNext();
-			// checks if there's a need to create a new node for the skip list
-			// based on the calculated number of nodes to be skipped
+			/*
+			 * Checks if there's a need to create a new skip node
+			 * based on the calculated number of nodes to be skipped
+			 */
 			Node currentNode = currentSkipNode.getBottom();
 			for (int i = 1; i <= nodesToSkip + 1; i++)
 				if (currentNode != null)
 					currentNode = currentNode.getNext();
-			// if number of nodes to be skipped was met then create a
-			// new node for the skip list
+			/*
+			 * If number of nodes to be skipped was met then create a
+			 * new node for the skip list
+			 */
 			if (currentNode != null) {
 
 				SkipNode skipNode = new SkipNode();
@@ -167,13 +170,13 @@ public class Main {
 		}
 	}
 	
-	
+	/*
+	 * Creates a skip list, operation can only be done once.
+	 */
 	public static void createSkipList() {
-
 		if (skipList.getHead() != null)
 			System.out.print("\nAlready created a skip list.");
 		else {
-
 			// computes the number of nodes to be skipped
 			nodesToSkip = (int) Math.sqrt(list.getLength());
 
@@ -190,7 +193,6 @@ public class Main {
 						currentNode = currentNode.getNext();
 					else
 						break;
-
 				}
 				if (currentNode != null) {
 					skipNode = new SkipNode();
@@ -198,7 +200,6 @@ public class Main {
 					skipNode.setData(currentNode.getData());
 					skipNode.setBottom(currentNode);
 					skipList.add(skipNode);
-
 				}
 			}
 			System.out.print("\nSkip list created!");

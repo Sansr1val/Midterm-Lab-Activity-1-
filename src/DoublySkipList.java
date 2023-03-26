@@ -63,7 +63,7 @@ public class DoublySkipList {
 	}
 
 	/*
-	* Method for serching a value from head. 
+	* Method for searching a value from head. 
 	* If the value is found, displays the number of traversed nodes and skip nodes.
 	* Displays a prompt if not.
 	*/
@@ -71,6 +71,7 @@ public class DoublySkipList {
 		String str = "Skip List:";
 		SkipNode current = head;
 		Node bottom = null;
+		//traverses the skip list as long as the data are <= value
 		while (current != null) {
 			if (current.getData() == value) {
 				str += (" " + current.getData());
@@ -80,7 +81,7 @@ public class DoublySkipList {
 				current = current.getNext();
 			} else {
 				str += (" " + current.getData());
-				bottom = current.getBottom();
+				bottom = current.getBottom();//goes down if it reaches the end
 				break;
 			}
 		}
@@ -96,12 +97,13 @@ public class DoublySkipList {
 				break;
 			}
 		}
-
+		//when it reaches the end, it means that the value is not found, it will return a prompt
+		//if the value is not found in the Lists.
 		return "Number does not exist in the list.";
 	}
 	
 	/*
-	* Method for serching a value from tail. 
+	* Method for searching a value from tail. 
 	* If the value is found, displays the number of traversed nodes and skip nodes.
 	* Displays a prompt if not.
 	*/
@@ -109,6 +111,11 @@ public class DoublySkipList {
 		String str = "Skip List:";
 		SkipNode current = tail;
 		Node bottom = null;
+		/*
+		 * It checks first if value is >= or <= the tail's data.
+		 * If the value is > tail data, the algorithm will go down and search the Linked list going to the right.
+		 * If the value is < tail data, the algorithm will traverse the skip list and then the linked list.
+		 */
 		if(value>= current.getData()) {
 			if(value == current.getData())
 				return str += (" " + current.getData());
@@ -127,6 +134,7 @@ public class DoublySkipList {
 				}
 			}
 		}else {
+			//Traverses the Skip list first from tail
 			while (current != null) {
 				if (current.getData() == value) {
 					str += (" " + current.getData());
@@ -136,11 +144,12 @@ public class DoublySkipList {
 					current = current.getPrevious();
 				} else {
 					str += (" " + current.getData());
-					bottom = current.getBottom();
+					bottom = current.getBottom();// goes down if it reaches the end
 					break;
 				}
 			}
 			str += "\nLinked List:";
+			//traverses the linked list going to the left.
 			while (bottom != null) {
 				if (bottom.getData() == value) {
 					str += (" " + bottom.getData());
@@ -153,8 +162,8 @@ public class DoublySkipList {
 				}
 			}
 		}
-		
-
+		//when it reaches the end, it means that the value is not found, it will return a prompt
+		//if the value is not found in the Lists.
 		return "Number does not exist in the list.";
 	}
 }

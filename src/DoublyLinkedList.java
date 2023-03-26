@@ -2,7 +2,7 @@
 public class DoublyLinkedList {
 
 	/*
-	 * Declaration of the head and tail nodes ` * that mark the start and the end of
+	 * Declaration of the head and tail nodes that mark the start and the end of
 	 * the list.
 	 */
 	private Node head;

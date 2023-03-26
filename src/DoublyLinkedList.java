@@ -1,11 +1,17 @@
 
 public class DoublyLinkedList {
 
-	// The head and tail nodes
+	/*
+	 * Declaration of the head and tail nodes that mark the start and the end of
+	 * the list.
+	 */
 	private Node head;
 	private Node tail;
 
-	// Getters and setters for the head and tail nodes
+	/*
+	 * Getters and setters of the tail and the head of the list that serves as the
+	 * accessory and modifiers of the encapsulated properties of this class.
+	 */
 	public Node getTail() {
 		return tail;
 	}
@@ -22,16 +28,21 @@ public class DoublyLinkedList {
 		this.head = head;
 	}
 
-	// Adds a new node to the end of the linked list
+	/*
+	 * This method adds a new node at the end of the existing list or set a new node
+	 * if a list is not yet initialized. It does its' work by taking in a new node
+	 * as its parameter and inserting it at the tail of the list if there is an
+	 * existing list or set the new node as the head if the head is null and a list
+	 * is not existing.
+	 */
 	public void add(Node node) {
-		if(head == null) { 
-			
-			 // if the list is empty, set head and tail to the new node
+		if (head == null) {
+
 			head = node;
 			tail = node;
 
-		}else { 
-			// otherwise, set the tail's next node to the new node and update tail to the new node
+		} else {
+
 			tail.setNext(node);
 			node.setPrevious(tail);
 			tail = node;
@@ -39,76 +50,95 @@ public class DoublyLinkedList {
 		}
 	}
 
-	// Returns a string representation of the linked list from head to tail
+	/*
+	 * This method displays the data present inside each of the nodes in the list.
+	 * It uses a loop to access all the nodes from the head down to the tail and
+	 * extract the data that it holds and uses a conditional statement to further
+	 * organize its output.
+	 */
 	public String display() {
 		Node currentNode = head;
 		String str = "";
-		while(currentNode != null) { 
-			
+		while (currentNode != null) {
+
 			// traverse the list and concatenate the data of each node to the string
-			str += String.valueOf(currentNode.getData()) +", ";
+			str += String.valueOf(currentNode.getData()) + ", ";
 			currentNode = currentNode.getNext();
 		}
-		if(str !="") { 
-			
+		if (str != "") {
+
 			// if the list is not empty, remove the last comma and space from the string
-			str = str.substring(0,str.length() -2);
+			str = str.substring(0, str.length() - 2);
 		}
 		return str;
 	}
 
-	// Returns a string representation of the linked list from tail to head
+	/*
+	 * This method displays the data present inside each of the nodes in the list.
+	 * It uses a loop to access all the nodes from the tail upto the head and
+	 * extract the data that it holds and uses a conditional statement to further
+	 * organize its output.
+	 */
 	public String displayReverse() {
 		Node currentNode = tail;
 		String str = "";
-		while(currentNode != null) { 
-			
-			// traverse the list backwards and concatenate the data of each node to the string
-			str += String.valueOf(currentNode.getData()) +", ";
+		while (currentNode != null) {
+
+			// traverse the list backwards and concatenate the data of each node to the
+			// string
+			str += String.valueOf(currentNode.getData()) + ", ";
 			currentNode = currentNode.getPrevious();
 		}
-		if(str !="") { 
-			
-			str = str.substring(0,str.length() -2);
+		if (str != "") {
+
+			str = str.substring(0, str.length() - 2);
 		}
 		return str;
 	}
 
-	// Sorts the linked list in ascending order using the bubble sort algorithm
-	public void bubbleSort() { 
+	/*
+	 * This method sorts the list in an ascending order using bubble sort algorithm
+	 * that runs in O(n) time complexity.
+	 */
+	public void bubbleSort() {
 		// flag to check if any swaps were made
-		boolean noChanges = true; 
+		boolean noChanges = true;
 		int temp;
 
-		Node currentNode = head; 
-		while(currentNode.getNext()!= null) { 
-			
+		Node currentNode = head;
+		while (currentNode.getNext() != null) {
+
 			// traverse the list until the second last node
-			if(currentNode.getData() > currentNode.getNext().getData()) { 
-				
+			if (currentNode.getData() > currentNode.getNext().getData()) {
+
 				// if the current node's data is greater than the next node's data, swap them
 				temp = currentNode.getData();
 				currentNode.setData(currentNode.getNext().getData());
 				currentNode.getNext().setData(temp);
-				noChanges = false; 
+				noChanges = false;
 				// set flag to false as a swap was made
 			}
-			currentNode = currentNode.getNext(); 
-		} 
+			currentNode = currentNode.getNext();
+		}
 		// move to the next node
-		if(noChanges==false)
+		if (noChanges == false)
 			bubbleSort();
 	}
-	
+
+	/*
+	 * This simple method is used to know the length of the list by traversing the
+	 * whole list with a while loop and incrementing an integer variable every
+	 * iteration it does.
+	 */
 	public int getLength() {
 		int counter = 0;
 		Node currentNode = head;
-		
+
 		// Traverse the linked list and count the number of nodes
-		while(currentNode!=null){
-			counter++;//adds 1 to counter if the node is not empty
+		while (currentNode != null) {
+			counter++;// adds 1 to counter if the node is not empty
 			currentNode = currentNode.getNext();
 		}
-		return counter; 
+		return counter;
 	}
 }

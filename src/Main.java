@@ -215,22 +215,21 @@ public class Main {
 		}
 	}
 	
-
+	// Display the linked list from head to tail
 	public static void displayListFromHead() {
-		// Display the linked list from head to tail
 		System.out.println("Displaying list from head...");
 		System.out.println(list.display());
 	}
-
+	// Display the linked list from tail to head
 	public static void displayListFromTail() {
-		// Display the linked list from tail to head
 		System.out.println("Displaying list from tail...");
 		System.out.println(list.displayReverse());
 	}
 
+	// Display the skip list from head to tail.
+	// Cannot be performed if the Skip list is empty.
 	public static void displaySkipListFromHead() {
 		if(skipList.getHead() != null) {
-			 // Display the skip list from head to tail
 			System.out.println("Displaying skip list from head...");
 			System.out.println(skipList.display());
 		}else {
@@ -238,16 +237,21 @@ public class Main {
 		}
 	}
 
+	// Display the skip list from tail to head.
+	// Cannot be performed if the Skip List is empty.
 	public static void displaySkipListFromTail() {
 		if(skipList.getHead() != null) {
-			// Display the skip list from tail to head
 			System.out.println("Displaying skip list from tail...");
 			System.out.println(skipList.displayReverse());
 		}else {
 			System.out.println("Operation unavailable as Skip List is empty!");
 		}
 	}
-
+	
+	/*
+	 * Searches the value from Skip List head, displays each value that is passed.
+	 * Cannot be performed if Skip List is empty.
+	 */
 	public static void searchFromHead() throws NumberFormatException, IOException {
 		if(skipList.getHead() != null) {
 			try {
@@ -266,7 +270,10 @@ public class Main {
 		}
 	}
 	
-	
+	/*
+	 * Searches the value from Skip List tail, displays each value that is passed.
+	 * Cannot be performed if Skip List is empty.
+	 */
 	public static void searchFromTail() throws NumberFormatException, IOException {
 		if(skipList.getHead() != null) {
 			try {

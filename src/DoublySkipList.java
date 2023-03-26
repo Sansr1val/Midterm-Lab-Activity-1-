@@ -67,7 +67,7 @@ public class DoublySkipList {
 	* If the value is found, displays the number of traversed nodes and skip nodes.
 	* Displays a prompt if not.
 	*/
-	public String searchFromHead123(int value) {
+	public String searchFromHead(int value) {
 		String str = "Skip List:";
 		SkipNode current = head;
 		Node bottom = null;
@@ -105,7 +105,7 @@ public class DoublySkipList {
 	* If the value is found, displays the number of traversed nodes and skip nodes.
 	* Displays a prompt if not.
 	*/
-	public String searchFromTail123(int value) {
+	public String searchFromTail(int value) {
 		String str = "Skip List:";
 		SkipNode current = tail;
 		Node bottom = null;

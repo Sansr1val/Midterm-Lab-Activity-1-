@@ -74,6 +74,7 @@ public class Main {
 						createSkipList();
 						break;
 					case 2:
+						//addNode method 
 						addNode();
 						break;
 					case 3:// display list from head
@@ -246,7 +247,7 @@ public class Main {
 				number = Integer.parseInt(reader.readLine());
 				
 				// Search for the number in the skip list from head to tail
-				System.out.println(skipList.searchFromHead123(number));
+				System.out.println(skipList.searchFromHead(number));
 			} catch (NumberFormatException e) {
 				System.out.println("Integer only! Please try again.");
 			}
@@ -265,7 +266,7 @@ public class Main {
 				number = Integer.parseInt(reader.readLine());
 				
 				// Search for the number in the skip list from tail to head
-				System.out.println(skipList.searchFromTail123(number));
+				System.out.println(skipList.searchFromTail(number));
 			} catch (NumberFormatException e) {
 				System.out.println("Integer only! Please try again.");
 			}

@@ -116,7 +116,11 @@ public class Main {
 			System.out.println("Only integers are allowed as inputs! Try again.");
 		}
 	}
-	
+	/*
+	 * Adds a node in the Linked list.
+	 * Input must be greater than the last input.
+	 * Every input, checks if there is a need to add a new Skip Node.
+	 */
 	public static void addNode() throws NumberFormatException, IOException {
 		int number = 0;
 		do {

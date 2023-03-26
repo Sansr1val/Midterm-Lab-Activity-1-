@@ -51,7 +51,13 @@ public class Main {
 		list.bubbleSort();
 		System.out.println("Linked List: "+ list.display());
 		
-
+		/*
+		 * The main menu of the program.
+		 * If an error occurs while using the operations, the user will be brought back to the main
+		 * Menu.
+		 * Has input checks.
+		 * Disables the usage of operations that uses the Skip List when the skip list is not yet made.
+		 */
 		try {
 			while (true) {
 				System.out.println("\n-----Menu-----");
@@ -96,7 +102,6 @@ public class Main {
 						break;
 					case 9:
 						System.out.print("\n--Exit--" + "\nProgram will be terminated");
-
 						for (int i = 0; i < 3; i++) {
 							Thread.sleep(1000);
 							System.out.print(".");

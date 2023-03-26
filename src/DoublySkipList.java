@@ -71,7 +71,7 @@ public class DoublySkipList {
 		String str = "Skip List:";
 		SkipNode current = head;
 		Node bottom = null;
-		//traverses the skip list as long as the data are <= value
+		//traverses the skip list starting from head as long as the data are <= value
 		while (current != null) {
 			if (current.getData() == value) {
 				str += (" " + current.getData());
@@ -86,6 +86,7 @@ public class DoublySkipList {
 			}
 		}
 		str += "\nLinked List:";
+		//traverses the linked list from SkipNode's bottom Node 
 		while (bottom != null) {
 			if (bottom.getData() == value) {
 				str += (" " + bottom.getData());
@@ -149,7 +150,7 @@ public class DoublySkipList {
 				}
 			}
 			str += "\nLinked List:";
-			//traverses the linked list going to the left.
+			//traverses the linked list from SkipNode's bottom Node.
 			while (bottom != null) {
 				if (bottom.getData() == value) {
 					str += (" " + bottom.getData());

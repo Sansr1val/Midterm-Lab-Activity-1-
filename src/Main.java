@@ -58,8 +58,8 @@ public class Main {
 		 * Has input checks.
 		 * Disables the usage of operations that uses the Skip List when the skip list is not yet made.
 		 */
-		try {
-			while (true) {
+		while (true) {
+			try {
 				System.out.println("\n-----Menu-----");
 				System.out.println("[1] Create Skip List");
 				System.out.println("[2] Add Node");
@@ -70,7 +70,7 @@ public class Main {
 				System.out.println("[7] Search From Head");
 				System.out.println("[8] Search From Tail");
 				System.out.println("[9] Exit");
-				System.out.println("Select an operation: ");
+				System.out.print("Select an operation: ");
 				int choice = Integer.parseInt(reader.readLine());
 				if (choice < 1 || choice > 9) {
 					System.out.println("Operation " + choice + " does not exist! Try again.");
@@ -108,12 +108,12 @@ public class Main {
 						}
 						System.out.print("\nProgram terminated.");
 						System.exit(0);
-
+						
 					}
 				}
-			}
-		} catch (NumberFormatException e) {
-			System.out.println("Only integers are allowed as inputs! Try again.");
+			} catch (NumberFormatException e) {
+				System.out.println("Only integers are allowed as inputs! Try again.");
+			}			
 		}
 	}
 	/*

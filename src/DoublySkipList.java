@@ -1,6 +1,7 @@
 
 public class DoublySkipList {
 
+	// The head and tail nodes
 	private SkipNode head;
 	private SkipNode tail;
 
@@ -21,6 +22,7 @@ public class DoublySkipList {
 		return this.tail;
 	}
 
+	// method for adding a new node at the end of the skip list
 	public void add(SkipNode skipNode) {
 		if (head == null) {
 			head = skipNode;
@@ -32,6 +34,7 @@ public class DoublySkipList {
 		}
 	}
 
+	// method for displaying the skip list from head to tail
 	public String display() {
 		SkipNode currentNode = head;
 		String str = "";
@@ -45,6 +48,7 @@ public class DoublySkipList {
 		return str;
 	}
 
+	// method for displaying the skip list from tail to head
 	public String displayReverse() {
 		SkipNode currentNode = tail;
 		String str = "";
@@ -58,6 +62,7 @@ public class DoublySkipList {
 		return str;
 	}
 
+	// 
 	public String searchFromHead(int num) {
 		SkipNode tempSkipNode = this.head;
 		Node tempNode = new Node();

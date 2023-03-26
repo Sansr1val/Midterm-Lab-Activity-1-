@@ -62,37 +62,6 @@ public class DoublySkipList {
 		return str;
 	}
 
-	 
-	public String searchFromHead(int num) {
-		SkipNode tempSkipNode = this.head;
-		Node tempNode = new Node();
-		String res = "Skip List:";
-
-		while (tempSkipNode != null && tempSkipNode != tail && tempSkipNode.getNext().getData() <= num) {
-			res += (" " + tempSkipNode.getData());
-			tempSkipNode = tempSkipNode.getNext();
-		}
-
-		res += (" " + tempSkipNode.getData());
-
-		if (num == tempSkipNode.getData()) {
-			return res;
-		} else {
-			tempNode = tempSkipNode.getBottom();
-			res += "\nLinked List:";
-			while (tempNode != null && num != tempNode.getData()) {
-				res += " " + tempNode.getData();
-				tempNode = tempNode.getNext();
-			}
-
-		}
-
-		res = tempNode != null && tempNode.getData() == num ? res += " " + tempNode.getData()
-				: "Number does not exist in the list.";
-		return res;
-
-	}
-
 	/*
 	* Method for serching a value from head. 
 	* If the value is found, displays the number of traversed nodes and skip nodes.
@@ -187,48 +156,5 @@ public class DoublySkipList {
 		
 
 		return "Number does not exist in the list.";
-	}
-
-	public String searchFromTail(int num) {
-		SkipNode tempSkipNode = this.tail;
-		Node tempNode = new Node();
-		String res = "Skip List:";
-
-		if (tempSkipNode.getData() == num)
-			return res + " " + tempSkipNode.getData();
-
-		if (num > tempSkipNode.getData()) {
-			tempNode = tempSkipNode.getBottom();
-			res += "\nLinked List:";
-			while (tempNode != null && num != tempNode.getData()) {
-				res += " " + tempNode.getData();
-				tempNode = tempNode.getNext();
-			}
-		} else {
-
-			while (tempSkipNode != null && tempSkipNode != head && tempSkipNode.getPrevious().getData() >= num) {
-				res += (" " + tempSkipNode.getData());
-				tempSkipNode = tempSkipNode.getPrevious();
-			}
-
-			res += (" " + tempSkipNode.getData());
-
-			if (num == tempSkipNode.getData()) {
-				return res;
-			} else {
-				tempNode = tempSkipNode.getBottom();
-				res += "\nLinked List:";
-				while (tempNode != null && num != tempNode.getData()) {
-					res += " " + tempNode.getData();
-					tempNode = tempNode.getPrevious();
-				}
-
-			}
-
-		}
-
-		res = tempNode != null && tempNode.getData() == num ? res += " " + tempNode.getData()
-				: "Number does not exist in the list.";
-		return res;
 	}
 }

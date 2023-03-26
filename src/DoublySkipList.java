@@ -94,7 +94,7 @@ public class DoublySkipList {
 	}
 
 	/*
-	* method for serching a value from head. 
+	* Method for serching a value from head. 
 	* If the value is found, displays the number of traversed nodes and skip nodes.
 	* Displays a prompt if not.
 	*/

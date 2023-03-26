@@ -11,22 +11,19 @@ public class SkipNode {
 	// storage for the address of the bottom node
 	private Node bottom;
 
-	// constructor
+	// Constructors
 	public SkipNode() {
 		this.data = 0;
 		this.next = null;
 		this.previous = null;
 		this.bottom = null;
 	}
-	
-	// a no-argument constructor that creates a node with default values
 	public SkipNode(int data) {
 		this.data = data;
 		this.next = null;
 		this.previous = null;
 		this.bottom = null;
 	}
-
 	// setters and getters.
 	public int getData() {
 		return this.data;

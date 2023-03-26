@@ -6,18 +6,16 @@ public class Node {
 	
 	// storage for the address of the next node
 	private Node next;
-	
-	// a no-argument constructor that creates a node with default values
+	// storage for the address of the previous node
 	private Node previous;
 
-
+	//Constructors
 	public Node() {
 		this.data = 0;
 		this.next = null;
 		this.previous = null;
 	}
 	
-	// a constructor that creates a node with initial data specified by the parameter
 	public Node(int data) {
 		this.data = data;
 		this.next = null;

@@ -5,7 +5,7 @@ public class DoublySkipList {
 	private SkipNode head;
 	private SkipNode tail;
 
-	// setters and getters
+	// Setters and getters
 	public void setHead(SkipNode head) {
 		this.head = head;
 	}
@@ -22,7 +22,7 @@ public class DoublySkipList {
 		return this.tail;
 	}
 
-	// method for adding a new node at the end of the skip list
+	// Method for adding a new node at the end of the skip list
 	public void add(SkipNode skipNode) {
 		if (head == null) {
 			head = skipNode;
@@ -34,7 +34,7 @@ public class DoublySkipList {
 		}
 	}
 
-	// method for displaying the skip list from head to tail
+	// Method for displaying the skip list from head to tail
 	public String display() {
 		SkipNode currentNode = head;
 		String str = "";
@@ -48,7 +48,7 @@ public class DoublySkipList {
 		return str;
 	}
 
-	// method for displaying the skip list from tail to head
+	// Method for displaying the skip list from tail to head
 	public String displayReverse() {
 		SkipNode currentNode = tail;
 		String str = "";
@@ -62,7 +62,7 @@ public class DoublySkipList {
 		return str;
 	}
 
-	// 
+	 
 	public String searchFromHead(int num) {
 		SkipNode tempSkipNode = this.head;
 		Node tempNode = new Node();
@@ -93,6 +93,11 @@ public class DoublySkipList {
 
 	}
 
+	/*
+	* method for serching a value from head. 
+	* If the value is found, displays the number of traversed nodes and skip nodes.
+	* Displays a prompt if not.
+	*/
 	public String searchFromHead123(int value) {
 		String str = "Skip List:";
 		SkipNode current = head;
@@ -125,6 +130,12 @@ public class DoublySkipList {
 
 		return "Number does not exist in the list.";
 	}
+	
+	/*
+	* Method for serching a value from tail. 
+	* If the value is found, displays the number of traversed nodes and skip nodes.
+	* Displays a prompt if not.
+	*/
 	public String searchFromTail123(int value) {
 		String str = "Skip List:";
 		SkipNode current = tail;

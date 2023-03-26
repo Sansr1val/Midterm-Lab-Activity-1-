@@ -1,9 +1,14 @@
 
 public class SkipNode {
-
+	
+	// storage for the node data
 	private int data;
+	
+	// storage for the address of the previous node
 	private SkipNode previous;
+	// storage for the address of the next node
 	private SkipNode next;
+	// storage for the address of the bottom node
 	private Node bottom;
 
 	// constructor
@@ -13,7 +18,8 @@ public class SkipNode {
 		this.previous = null;
 		this.bottom = null;
 	}
-
+	
+	// a no-argument constructor that creates a node with default values
 	public SkipNode(int data) {
 		this.data = data;
 		this.next = null;
